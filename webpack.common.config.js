@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // Entry points
 const entries = {};
@@ -141,15 +141,15 @@ const webpackConfig = {
     new StyleLintPlugin({
       configFile: '.stylelintrc',
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname, 'src/img/**/*'),
-    //       to: 'img',
-    //       flatten: true,
-    //     },
-    //   ],
-    // }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/img/**/*'),
+          to: 'img',
+          flatten: true,
+        },
+      ],
+    }),
   ],
 };
 
